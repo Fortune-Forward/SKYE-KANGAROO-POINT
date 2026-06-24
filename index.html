@@ -173,10 +173,38 @@
   @media(max-width:760px){.films{grid-template-columns:1fr;max-width:360px;margin-left:auto;margin-right:auto}}
 
   @media(max-width:860px){
-    .stats,.lifestyle{grid-template-columns:1fr}
-    .split{grid-template-columns:1fr;gap:34px}
+    .wrap{padding:clamp(54px,8vh,82px) 20px}
+    .eyebrow{margin-bottom:22px}
+    h2{font-size:clamp(26px,7vw,40px)}
+    .lede{margin-top:24px;line-height:1.95}
+    .tags{margin-top:30px}
+    /* compact stat grids — 2-up so sections aren't endlessly tall */
+    .stats{grid-template-columns:repeat(2,1fr);margin-top:38px}
+    .stat{padding:22px 16px}
+    .stat .v{font-size:clamp(30px,8.2vw,44px);white-space:nowrap}
+    .stat .k{margin-top:10px;font-size:11px}
+    /* developer: 3 compact stats in one row */
+    .dev .stats{grid-template-columns:repeat(3,1fr)}
+    .dev .stat{padding:22px 8px}
+    .dev .stat .v{font-size:clamp(21px,6.4vw,34px)}
+    .dev .stat .k{font-size:10px;letter-spacing:.08em}
+    /* lifestyle: 2 columns halves the height */
+    .lifestyle{grid-template-columns:repeat(2,1fr);margin-top:36px}
+    .lifestyle .cell{padding:22px 14px}
+    .lifestyle .cell h4{margin-bottom:14px;letter-spacing:.16em}
+    .lifestyle .cell li{font-size:13px;padding:6px 0}
+    .lifestyle .cell li span{font-size:10.5px}
+    .dist{margin-top:36px;gap:22px 18px}
+    .band{height:clamp(300px,56vh,620px)}
+    .band .cap h3{font-size:clamp(21px,6vw,30px)}
+    .split{grid-template-columns:1fr;gap:28px}
     .split.flip .txt{order:0}
     .figrow{grid-template-columns:1fr 1fr}
+    .plans{margin-top:42px}
+  }
+  @media(max-width:430px){
+    .lifestyle .cell li{font-size:12px}
+    .lifestyle .cell li span{font-size:10px}
   }
 </style>
 </head>
@@ -344,11 +372,11 @@
     <p class="lede reveal d2">未经布置的实景影像 —— 全屋落地玻璃将布里斯班河与城市天际线引入室内，洞石与橡木在光影间静静呼吸。</p>
     <div class="films reveal d2">
       <div class="film-card">
-        <video src="assets/video/film_interior.mp4" poster="assets/video/film_interior.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        <video src="assets/video/film_interior.mp4?v=2" poster="assets/video/film_interior.jpg?v=2" autoplay muted loop playsinline webkit-playsinline x5-playsinline disablepictureinpicture preload="auto"></video>
         <div class="fc"><div class="e">Interior</div><div class="t">室内漫游 · 落地视野</div></div>
       </div>
       <div class="film-card">
-        <video src="assets/video/film_view.mp4" poster="assets/video/film_view.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        <video src="assets/video/film_view.mp4?v=2" poster="assets/video/film_view.jpg?v=2" autoplay muted loop playsinline webkit-playsinline x5-playsinline disablepictureinpicture preload="auto"></video>
         <div class="fc"><div class="e">The View</div><div class="t">城市视野 · 河与天际线</div></div>
       </div>
     </div>
@@ -563,6 +591,21 @@
     es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
   },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+  // robust muted-autoplay (handles iOS Safari + in-app webviews like WeChat)
+  (function(){
+    var vids=[].slice.call(document.querySelectorAll('video'));
+    function tryplay(v){ if(!v)return; try{v.muted=true;v.setAttribute('muted','');}catch(e){} var p=v.play(); if(p&&p.catch)p.catch(function(){}); }
+    function playAll(){ vids.forEach(tryplay); }
+    if('IntersectionObserver' in window){
+      var vio=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting) tryplay(e.target); else if(e.target.pause){/* keep looping; no pause to avoid restart fl__ */} });},{threshold:0.2});
+      vids.forEach(function(v){vio.observe(v);});
+    }
+    ['touchstart','click','scroll'].forEach(function(ev){document.addEventListener(ev,playAll,{once:true,passive:true});});
+    document.addEventListener('WeixinJSBridgeReady',playAll,false);
+    window.addEventListener('load',playAll);
+    playAll();
+  })();
 </script>
 </body>
 </html>
