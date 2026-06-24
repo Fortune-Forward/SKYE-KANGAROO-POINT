@@ -1,0 +1,5 @@
+# scratch / preview artifacts (not part of the site)
+_*.jpg
+_*.png
+.DS_Store
+*.tmp

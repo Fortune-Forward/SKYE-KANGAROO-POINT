@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+<meta name="theme-color" content="#171311" />
+<title>SKYE by Pikos | 袋鼠角悬崖之上 · 布里斯班</title>
+<meta name="description" content="SKYE by Pikos —— 矗立于布里斯班袋鼠角悬崖之上的臻藏住宅，俯瞰河流与城市天际线。三栋独立建筑，每层仅两户，全系三卧豪宅。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+SC:wght@300;400;500;600&family=Noto+Sans+SC:wght@200;300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#171311;          /* warm near-black */
+    --bg-alt:#1f1a16;      /* stone dark */
+    --bg-deep:#100c0a;
+    --stone:#e7ded0;       /* travertine light */
+    --stone-2:#d8cdba;
+    --cream:#efe9dd;
+    --muted:#a3957f;       /* muted oak */
+    --muted-2:#7d7060;
+    --bronze:#b08d57;      /* brushed bronze accent */
+    --line:rgba(176,141,87,0.28);
+    --line-soft:rgba(231,222,208,0.12);
+    --serif:'Noto Serif SC','Cormorant Garamond',serif;
+    --display:'Cormorant Garamond','Noto Serif SC',serif;
+    --sans:'Noto Sans SC',system-ui,-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--cream);
+    font-family:var(--sans);font-weight:300;line-height:1.8;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  img{display:block;max-width:100%}
+  ::selection{background:var(--bronze);color:#1a1410}
+
+  /* ---------- chrome ---------- */
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;
+    padding:22px clamp(20px,5vw,64px);mix-blend-mode:difference;pointer-events:none}
+  .topbar .mark{font-family:var(--display);letter-spacing:.5em;font-size:18px;color:#fff;font-weight:400;padding-left:.5em}
+  .topbar .idx{font-family:var(--sans);font-size:11px;letter-spacing:.35em;color:#fff;font-weight:300}
+  .progress{position:fixed;top:0;left:0;height:2px;background:var(--bronze);width:0;z-index:60;transition:width .15s linear}
+
+  /* ---------- layout ---------- */
+  section{position:relative}
+  .wrap{max-width:1180px;margin:0 auto;padding:clamp(90px,13vh,170px) clamp(22px,6vw,72px)}
+  .eyebrow{font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--bronze);font-weight:400;margin-bottom:30px}
+  .eyebrow .num{color:var(--muted-2);margin-right:18px}
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4.4vw,52px);line-height:1.28;letter-spacing:.01em;color:var(--stone)}
+  h2 em{font-style:italic;font-family:var(--display);color:var(--bronze);font-weight:400}
+  .lede{font-size:clamp(15px,1.5vw,18px);color:var(--muted);max-width:60ch;margin-top:34px;line-height:2}
+  .lede + .lede{margin-top:20px}
+  .tags{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:42px}
+  .tags span{font-size:11px;letter-spacing:.18em;color:var(--stone-2);border:1px solid var(--line);border-radius:40px;padding:8px 18px;text-transform:uppercase}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+  /* ---------- hero ---------- */
+  .hero{height:100svh;min-height:620px;display:flex;flex-direction:column;justify-content:flex-end;
+    background:linear-gradient(180deg,rgba(15,11,9,.55) 0%,rgba(15,11,9,.05) 32%,rgba(15,11,9,.78) 100%),
+      url('assets/photos/hero_dusk.jpg') center/cover no-repeat;}
+  .hero-inner{padding:0 clamp(22px,6vw,72px) clamp(54px,9vh,96px);max-width:1180px;margin:0 auto;width:100%}
+  .hero .kicker{font-size:11px;letter-spacing:.5em;color:var(--stone-2);text-transform:uppercase;margin-bottom:28px}
+  .hero h1{font-family:var(--display);font-weight:300;font-size:clamp(74px,19vw,230px);line-height:.86;letter-spacing:.12em;color:#fff;text-indent:.12em}
+  .hero .sub{font-family:var(--display);font-style:italic;font-size:clamp(18px,2.6vw,30px);color:var(--stone);margin-top:18px;letter-spacing:.04em}
+  .hero .tagline{font-size:clamp(13px,1.5vw,16px);letter-spacing:.16em;color:var(--cream);margin-top:30px}
+  .hero .addr{font-size:12px;letter-spacing:.28em;color:var(--muted);margin-top:14px;text-transform:uppercase}
+  .hero .scroll{margin-top:40px;font-size:11px;letter-spacing:.3em;color:var(--stone-2);display:flex;align-items:center;gap:12px}
+  .hero .scroll .ln{width:46px;height:1px;background:var(--bronze);display:inline-block;animation:grow 2.4s ease-in-out infinite}
+  @keyframes grow{0%,100%{transform:scaleX(.4);opacity:.5}50%{transform:scaleX(1);opacity:1}}
+
+  /* ---------- stats ---------- */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);margin-top:60px}
+  .stat{background:var(--bg);padding:38px clamp(16px,3vw,34px)}
+  .stat .v{font-family:var(--display);font-size:clamp(40px,6vw,68px);line-height:1;color:var(--stone);font-weight:300}
+  .stat .v small{font-size:.4em;letter-spacing:.05em;color:var(--bronze);margin-left:4px}
+  .stat .k{font-size:12px;letter-spacing:.16em;color:var(--muted);margin-top:16px;text-transform:uppercase}
+
+  /* ---------- full image band ---------- */
+  .band{height:clamp(360px,76vh,820px);background-size:cover;background-position:center;position:relative}
+  .band .cap{position:absolute;left:clamp(22px,6vw,72px);bottom:clamp(28px,5vh,56px);max-width:540px}
+  .band .cap .e{font-size:11px;letter-spacing:.4em;color:var(--bronze);text-transform:uppercase}
+  .band .cap h3{font-family:var(--serif);font-weight:400;font-size:clamp(24px,3.4vw,40px);color:#fff;margin-top:14px;line-height:1.3;text-shadow:0 2px 30px rgba(0,0,0,.5)}
+  .band::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(15,11,9,.72) 100%)}
+  .band .cap{z-index:2}
+
+  /* ---------- two-col ---------- */
+  .split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,6vw,80px);align-items:center}
+  .split.flip .txt{order:2}
+  .split .media img{width:100%;height:100%;object-fit:cover;border-radius:2px}
+  .figrow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .figrow img{aspect-ratio:3/4;object-fit:cover;width:100%}
+
+  /* ---------- light section ---------- */
+  .light{background:var(--stone);color:#2a231b}
+  .light h2{color:#2a231b}
+  .light h2 em{color:#8a6a3a}
+  .light .eyebrow{color:#8a6a3a}
+  .light .lede{color:#6a5d4c}
+  .spec{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:54px;border-top:1px solid rgba(42,35,27,.18)}
+  .spec .row{display:grid;grid-template-columns:1fr 1.4fr;gap:18px;padding:22px 4px;border-bottom:1px solid rgba(42,35,27,.14)}
+  .spec .row .lbl{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9a7e54;font-weight:500}
+  .spec .row .val{font-size:15px;color:#3a3025;font-family:var(--serif)}
+  @media(max-width:760px){.spec{grid-template-columns:1fr}}
+
+  /* ---------- amenity grid ---------- */
+  .lifestyle{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);margin-top:56px;border:1px solid var(--line-soft)}
+  .lifestyle .cell{background:var(--bg);padding:34px clamp(18px,2.6vw,30px)}
+  .lifestyle .cell h4{font-size:11px;letter-spacing:.26em;color:var(--bronze);text-transform:uppercase;margin-bottom:20px;font-weight:500}
+  .lifestyle .cell ul{list-style:none}
+  .lifestyle .cell li{font-size:14.5px;color:var(--stone-2);padding:7px 0;border-bottom:1px solid rgba(231,222,208,.06);font-family:var(--serif)}
+  .lifestyle .cell li span{display:block;font-size:11px;color:var(--muted-2);letter-spacing:.05em;font-family:var(--sans)}
+
+  /* ---------- distances ---------- */
+  .dist{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 24px;margin-top:54px}
+  .dist .d .t{font-family:var(--display);font-size:clamp(30px,4vw,46px);color:var(--stone);font-weight:300;line-height:1}
+  .dist .d .t small{font-size:.34em;letter-spacing:.1em;color:var(--bronze);margin-left:5px}
+  .dist .d .l{font-size:12px;letter-spacing:.04em;color:var(--muted);margin-top:12px;line-height:1.5}
+  @media(max-width:760px){.dist{grid-template-columns:1fr 1fr}}
+
+  /* ---------- floor plans ---------- */
+  .fp-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px}
+  .plans{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,38px);margin-top:60px}
+  .plan{background:var(--bg-alt);border:1px solid var(--line-soft);border-radius:3px;overflow:hidden;display:flex;flex-direction:column}
+  .plan .img{background:#f4efe6;padding:18px}
+  .plan .img img{width:100%;height:auto}
+  .plan .body{padding:30px clamp(22px,2.6vw,34px) 34px}
+  .plan .tt{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line-soft);padding-bottom:18px}
+  .plan .tt .nm{font-family:var(--display);font-size:34px;color:var(--stone);font-weight:300;letter-spacing:.04em}
+  .plan .tt .nm em{font-style:normal;font-size:14px;color:var(--bronze);letter-spacing:.2em;display:block;margin-top:2px;font-family:var(--sans)}
+  .plan .tt .tw{font-size:11px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;text-align:right}
+  .plan .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+  .plan .grid3 .c .n{font-family:var(--display);font-size:26px;color:var(--cream);font-weight:300}
+  .plan .grid3 .c .n small{font-size:.5em;color:var(--muted);letter-spacing:.04em}
+  .plan .grid3 .c .u{font-size:10.5px;letter-spacing:.12em;color:var(--muted-2);text-transform:uppercase;margin-top:4px}
+  .plan .meta{display:flex;gap:22px;margin-top:24px;flex-wrap:wrap}
+  .plan .meta div{font-size:12.5px;color:var(--stone-2);letter-spacing:.04em}
+  .plan .meta div b{color:var(--bronze);font-weight:400;margin-right:6px}
+  .plan .price{margin-top:26px;padding-top:22px;border-top:1px solid var(--line-soft);display:flex;justify-content:space-between;align-items:baseline}
+  .plan .price .pl{font-size:11px;letter-spacing:.24em;color:var(--muted);text-transform:uppercase}
+  .plan .price .pv{font-family:var(--display);font-size:28px;color:var(--stone);font-weight:400}
+  .plan-note{margin-top:40px;font-size:13px;color:var(--muted);letter-spacing:.03em;line-height:1.9;border-left:1px solid var(--line);padding-left:22px}
+  @media(max-width:860px){.plans{grid-template-columns:1fr}}
+
+  /* ---------- developer ---------- */
+  .dev .stats .v{color:var(--bronze)}
+
+  /* ---------- closing ---------- */
+  .closing{height:100svh;min-height:560px;display:flex;align-items:center;justify-content:center;text-align:center;
+    background:linear-gradient(180deg,rgba(15,11,9,.62),rgba(15,11,9,.82)),url('assets/photos/facade.jpg') center/cover no-repeat}
+  .closing .ci{max-width:760px;padding:0 24px}
+  .closing h2{color:#fff}
+  .closing .addr{margin-top:36px;font-size:13px;letter-spacing:.32em;color:var(--stone-2);text-transform:uppercase;line-height:2.2}
+  .closing .status{display:inline-block;margin-top:30px;font-size:11px;letter-spacing:.3em;color:var(--bronze);border:1px solid var(--line);border-radius:40px;padding:12px 28px;text-transform:uppercase}
+  .footer{background:var(--bg-deep);padding:60px clamp(22px,6vw,72px);text-align:center}
+  .footer .fm{font-family:var(--display);letter-spacing:.5em;font-size:22px;color:var(--stone);padding-left:.5em}
+  .footer .fn{font-size:11px;letter-spacing:.3em;color:var(--muted-2);margin-top:16px;text-transform:uppercase}
+  .footer .disc{max-width:880px;margin:34px auto 0;font-size:11px;color:var(--muted-2);line-height:1.9;letter-spacing:.02em}
+
+  /* ---------- film ---------- */
+  .films{display:grid;grid-template-columns:repeat(2,minmax(0,360px));gap:clamp(18px,3vw,44px);justify-content:center;margin-top:58px}
+  .film-card{position:relative;border:1px solid var(--line-soft);border-radius:4px;overflow:hidden;background:#000}
+  .film-card video{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:cover}
+  .film-card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(0,0,0,.6));pointer-events:none}
+  .film-card .fc{position:absolute;left:18px;bottom:16px;z-index:2}
+  .film-card .fc .e{font-size:10px;letter-spacing:.34em;color:var(--bronze);text-transform:uppercase}
+  .film-card .fc .t{font-family:var(--serif);font-size:18px;color:#fff;margin-top:5px;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+  @media(max-width:760px){.films{grid-template-columns:1fr;max-width:360px;margin-left:auto;margin-right:auto}}
+
+  @media(max-width:860px){
+    .stats,.lifestyle{grid-template-columns:1fr}
+    .split{grid-template-columns:1fr;gap:34px}
+    .split.flip .txt{order:0}
+    .figrow{grid-template-columns:1fr 1fr}
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="topbar">
+  <div class="mark">SKYE</div>
+  <div class="idx"><span id="idx">01</span> / <span id="tot">01</span></div>
+</div>
+
+<!-- 01 HERO -->
+<header class="hero" data-sec>
+  <div class="hero-inner">
+    <div class="kicker">BY PIKOS · KANGAROO POINT</div>
+    <h1>SKYE</h1>
+    <div class="sub">超越定义的人居</div>
+    <div class="tagline">悬崖之上 · 河与城尽收眼底 · LIVE BEYOND DEFINITION</div>
+    <div class="addr">8 River Terrace · Kangaroo Point · Brisbane QLD</div>
+    <div class="scroll"><span class="ln"></span> 向下滚动</div>
+  </div>
+</header>
+
+<!-- 02 INTRO -->
+<section data-sec class="s-dark">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="num">02</span>项目引言</div>
+    <h2 class="reveal d1">将布里斯班内城生活，<br>带至 <em>全新高度</em></h2>
+    <p class="lede reveal d2">SKYE 是一组经过深思熟虑的臻藏住宅，精准矗立于袋鼠角悬崖之上，俯瞰布里斯班河与城市天际线的全景。River Terrace 是布里斯班最为稀缺的地址之一，而 SKYE 将以一座地标建筑的姿态，承载与之相称的非凡奢华。</p>
+    <p class="lede reveal d3">开放式室内空间无缝延展至宽阔户外，引入微风、自然光与壮阔视野。每一处细节，都为从容生活而生。</p>
+    <div class="tags reveal d3">
+      <span>悬崖之上</span><span>河景全景</span><span>内城半岛</span><span>三卧豪宅</span><span>每层两户</span>
+    </div>
+  </div>
+</section>
+
+<!-- 03 OVERVIEW -->
+<section data-sec class="s-dark" style="background:var(--bg-alt)">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="num">03</span>项目概况</div>
+    <h2 class="reveal d1">三栋独立建筑，<em>每层仅两户</em></h2>
+    <p class="lede reveal d2">SKYE 以建筑学手法被设计为三栋相互独立的建筑，每层仅设两户。这一克制的布局极大提升了私密性，并借由创新的通风井与遮阳设计，确保每户都拥有自然采光与穿堂通风。</p>
+    <div class="stats reveal d2">
+      <div class="stat"><div class="v">3<small>栋</small></div><div class="k">独立建筑</div></div>
+      <div class="stat"><div class="v">2<small>户</small></div><div class="k">每层户数</div></div>
+      <div class="stat"><div class="v">3<small>卧</small></div><div class="k">户型标准配置</div></div>
+      <div class="stat"><div class="v">2<small>个</small></div><div class="k">每户车位</div></div>
+      <div class="stat"><div class="v">141–216<small>m²</small></div><div class="k">套内面积区间</div></div>
+      <div class="stat"><div class="v">8<small>RT</small></div><div class="k">River Terrace 地址</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 AERIAL BAND -->
+<section data-sec>
+  <div class="band" style="background-image:url('assets/photos/tower_river.jpg')">
+    <div class="cap reveal">
+      <div class="e">Kangaroo Point</div>
+      <h3>立于半岛之巅，<br>俯瞰河流蜿蜒入城</h3>
+    </div>
+  </div>
+</section>
+
+<!-- 05 LOCATION -->
+<section data-sec class="s-dark">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="num">04</span>区位 · 袋鼠角</div>
+    <h2 class="reveal d1">悬崖之上，<em>城市近在咫尺</em></h2>
+    <p class="lede reveal d2">袋鼠角半岛本身即是目的地 —— 拥有自己的村落、河滩、公园，以及半岛最负盛名的天然地标：悬崖。布里斯班 CBD 就在河对岸，经全新的袋鼠角绿桥，步行十余分钟即达。</p>
+    <div class="dist reveal d2">
+      <div class="d"><div class="t">2<small>分</small></div><div class="l">袋鼠角悬崖公园<br>Cliffs Park 步行</div></div>
+      <div class="d"><div class="t">1<small>分</small></div><div class="l">Joey's 河畔餐厅<br>步行</div></div>
+      <div class="d"><div class="t">15<small>分</small></div><div class="l">布里斯班 CBD<br>经绿桥步行</div></div>
+      <div class="d"><div class="t">5<small>分</small></div><div class="l">St Vincent's<br>私立医院步行</div></div>
+      <div class="d"><div class="t">10<small>分</small></div><div class="l">袋鼠角绿桥<br>步行</div></div>
+      <div class="d"><div class="t">6<small>分</small></div><div class="l">James Street<br>时尚区车程</div></div>
+      <div class="d"><div class="t">4<small>分</small></div><div class="l">Dockside<br>渡轮码头车程</div></div>
+      <div class="d"><div class="t">5<small>分</small></div><div class="l">CBD 骑行<br>经绿桥</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 LIFESTYLE -->
+<section data-sec class="s-dark" style="background:var(--bg-alt)">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="num">05</span>生活配套</div>
+    <h2 class="reveal d1">你所需要的一切，<em>皆在步行之间</em></h2>
+    <div class="lifestyle reveal d2">
+      <div class="cell"><h4>餐饮 · 美酒</h4><ul>
+        <li>Joey's 河畔餐厅<span>悬崖之上 · 步行 1 分钟</span></li>
+        <li>Deery's Restaurant<span>牛排与美酒</span></li>
+        <li>Eagles Nest 屋顶酒吧</li>
+        <li>Howard Smith Wharves</li>
+        <li>Brisbane Jazz Club<span>历史船屋爵士俱乐部</span></li>
+      </ul></div>
+      <div class="cell"><h4>公园 · 自然</h4><ul>
+        <li>袋鼠角悬崖公园<span>步行 2 分钟</span></li>
+        <li>Captain Burke Park</li>
+        <li>City Botanic Gardens 植物园</li>
+        <li>South Bank 南岸公园</li>
+        <li>Riverwalk 河滨步道<span>7 公里滨河步道</span></li>
+      </ul></div>
+      <div class="cell"><h4>交通 · 通达</h4><ul>
+        <li>袋鼠角绿桥<span>直通 CBD</span></li>
+        <li>Story Bridge 故事桥</li>
+        <li>Dockside / Mowbray 渡轮</li>
+        <li>Clem Jones 隧道<span>车程 2 分钟</span></li>
+        <li>未来 Woolloongabba 跨河铁路</li>
+      </ul></div>
+      <div class="cell"><h4>教育</h4><ul>
+        <li>昆士兰科技大学 QUT</li>
+        <li>Griffith 大学南岸校区</li>
+        <li>Somerville House 女校</li>
+        <li>Anglican Church Grammar 男校</li>
+        <li>Shafston International College</li>
+      </ul></div>
+      <div class="cell"><h4>医疗</h4><ul>
+        <li>St Vincent's 私立医院<span>步行 5 分钟</span></li>
+        <li>Mater 私立儿童医院</li>
+        <li>Princess Alexandra 医院</li>
+        <li>Dockside 医疗中心</li>
+      </ul></div>
+      <div class="cell"><h4>购物 · 文娱</h4><ul>
+        <li>拟建 Woolworths 袋鼠角</li>
+        <li>James Street 精品区</li>
+        <li>Eagle Street 餐饮码头</li>
+        <li>Queen's Wharf 娱乐综合体</li>
+        <li>GOMA / QPAC 艺术中心</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 ARCHITECTURE BAND -->
+<section data-sec>
+  <div class="band" style="background-image:url('assets/photos/aerial_curve.jpg')">
+    <div class="cap reveal">
+      <div class="e">Architecture</div>
+      <h3>克制有力的建筑语言，<br>与河岸天际线共生</h3>
+    </div>
+  </div>
+</section>
+
+<!-- 08 INTERIORS -->
+<section data-sec class="s-dark">
+  <div class="wrap">
+    <div class="split">
+      <div class="txt">
+        <div class="eyebrow reveal"><span class="num">06</span>室内 · 开放式生活</div>
+        <h2 class="reveal d1">取材于自然的<br><em>奢华质感</em></h2>
+        <p class="lede reveal d2">SKYE 的材质取自袋鼠角周遭的自然之美 —— 柔和的木饰面橱柜、Roman Classic 罗马古典洞石，以及宽幅欧洲橡木工程实木地板。洞石的天然纹理仿若布里斯班河的涟漪，与木材的肌理交织出温暖、质感与从容。</p>
+        <div class="tags reveal d3">
+          <span>欧洲橡木地板</span><span>罗马古典洞石</span><span>木饰面橱柜</span><span>落地玻璃</span>
+        </div>
+      </div>
+      <div class="media reveal d2"><div class="figrow"><img src="assets/photos/living_wide.jpg" alt="开放式起居空间" loading="lazy" /><img src="assets/photos/living_dining.jpg" alt="餐厨与起居" loading="lazy" /></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FILM -->
+<section data-sec class="s-dark">
+  <div class="wrap">
+    <div class="eyebrow reveal">实景影像 · FILM</div>
+    <h2 class="reveal d1">光、空间与河城，<em>于眼前流动</em></h2>
+    <p class="lede reveal d2">未经布置的实景影像 —— 全屋落地玻璃将布里斯班河与城市天际线引入室内，洞石与橡木在光影间静静呼吸。</p>
+    <div class="films reveal d2">
+      <div class="film-card">
+        <video src="assets/video/film_interior.mp4" poster="assets/video/film_interior.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        <div class="fc"><div class="e">Interior</div><div class="t">室内漫游 · 落地视野</div></div>
+      </div>
+      <div class="film-card">
+        <video src="assets/video/film_view.mp4" poster="assets/video/film_view.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        <div class="fc"><div class="e">The View</div><div class="t">城市视野 · 河与天际线</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 KITCHEN + VIEW BAND -->
+<section data-sec>
+  <div class="band" style="background-image:url('assets/photos/kitchen.jpg')">
+    <div class="cap reveal">
+      <div class="e">The Kitchen</div>
+      <h3>V-ZUG 全套电器 · PARISI 水件<br>洞石中岛，世界级配置</h3>
+    </div>
+  </div>
+</section>
+
+<!-- 10 MASTER + BATH -->
+<section data-sec class="s-dark" style="background:var(--bg-alt)">
+  <div class="wrap">
+    <div class="split flip">
+      <div class="media reveal d2">
+        <div class="figrow">
+          <img src="assets/photos/bedroom.jpg" alt="主卧" loading="lazy" />
+          <img src="assets/photos/bathroom.jpg" alt="主卫" loading="lazy" />
+        </div>
+      </div>
+      <div class="txt">
+        <div class="eyebrow reveal"><span class="num">07</span>主卧 · 卫浴</div>
+        <h2 class="reveal d1">私属静养的<br><em>归宿之所</em></h2>
+        <p class="lede reveal d2">每户三间宽敞卧室，主卧是私密的退隐之地 —— 落地衣帽间、定制橱柜辅以特色灯光，与天然橡木的暖调相得益彰。卫浴空间自地面至天花，皆以华美的 Roman Classic 洞石铺陈，营造无与伦比的雅致与静谧。</p>
+        <div class="tags reveal d3">
+          <span>100% 羊毛地毯</span><span>落地衣帽间</span><span>洞石浴缸台面</span><span>全屋落地窗</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAIL BAND -->
+<section data-sec>
+  <div class="band" style="background-image:url('assets/photos/joinery.jpg')">
+    <div class="cap reveal">
+      <div class="e">Craft · 木作</div>
+      <h3>天然橡木的暖调，<br>于光影之间静默生长</h3>
+    </div>
+  </div>
+</section>
+
+<!-- 11 FINISHES (light) -->
+<section data-sec class="light">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="num">08</span>精装规格 · Schedule of Finishes</div>
+    <h2 class="reveal d1">历久弥新的<em> 奢享之居</em></h2>
+    <p class="lede reveal d2">每一处细节，都经过深思熟虑 —— 以纯粹与持久为念，与周遭环境相得益彰，经得起时间的考验。</p>
+    <div class="spec reveal d2">
+      <div class="row"><div class="lbl">客厨餐地板</div><div class="val">欧洲橡木 European Oak 工程实木</div></div>
+      <div class="row"><div class="lbl">卫浴 · 阳台</div><div class="val">Roman Classic Travertine 罗马古典洞石</div></div>
+      <div class="row"><div class="lbl">卧室地面</div><div class="val">100% 纯羊毛地毯</div></div>
+      <div class="row"><div class="lbl">橱柜 / 木作</div><div class="val">天然木饰面 · 高品质木纹饰面</div></div>
+      <div class="row"><div class="lbl">厨房电器</div><div class="val">V-ZUG 全套（瑞士）· 蒸烤箱 · 感应灶 · 集成洗碗机</div></div>
+      <div class="row"><div class="lbl">龙头水件</div><div class="val">PARISI · 拉丝镍 Brushed Nickel</div></div>
+      <div class="row"><div class="lbl">台面 · 中岛</div><div class="val">Roman Classic 洞石板材</div></div>
+      <div class="row"><div class="lbl">外遮阳</div><div class="val">玻璃纤维外置遮阳帘 · 全屋落地玻璃</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 ROOFTOP -->
+<section data-sec class="s-dark">
+  <div class="wrap">
+    <div class="split">
+      <div class="txt">
+        <div class="eyebrow reveal"><span class="num">09</span>顶层生活 · 屋顶</div>
+        <h2 class="reveal d1">凌驾一切之上，<br><em>尽揽全城风光</em></h2>
+        <p class="lede reveal d2">在恒温无边泳池中,舒缓身心,饱览河流至城市的壮阔全景。屋顶休闲再生平台设有躺椅与户外厨房,宛若度假胜地的私属庇护所。</p>
+        <p class="lede reveal d3">地面层礼遇延续 —— 礼宾式 Porte Cochère 落客区通向双门厅，中央休闲花园以葱郁景观连接住户图书馆与共享工作空间。</p>
+        <div class="tags reveal d3"><span>恒温无边泳池</span><span>屋顶户外厨房</span><span>住户图书馆</span><span>礼宾落客区</span></div>
+      </div>
+      <div class="media reveal d2"><div class="figrow"><img src="assets/photos/pool_skyline.jpg" alt="屋顶无边泳池" loading="lazy" /><img src="assets/photos/pool_column.jpg" alt="屋顶泳池平台" loading="lazy" /></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ADDRESS BAND -->
+<section data-sec>
+  <div class="band" style="background-image:url('assets/photos/aerial_river.jpg')">
+    <div class="cap reveal">
+      <div class="e">8 River Terrace</div>
+      <h3>立于河岸之上，<br>连接布里斯班的全部精华</h3>
+    </div>
+  </div>
+</section>
+
+<!-- 13 FLOOR PLANS -->
+<section data-sec class="s-dark" style="background:var(--bg-alt)">
+  <div class="wrap">
+    <div class="fp-head">
+      <div>
+        <div class="eyebrow reveal"><span class="num">10</span>重点推荐户型</div>
+        <h2 class="reveal d1">在售户型 · <em>三卧臻选</em></h2>
+      </div>
+      <p class="lede reveal d2" style="margin-top:0;max-width:34ch">全系三卧、两车位标准配置，套内 141–216 m²，户户朝向河与城。</p>
+    </div>
+
+    <div class="plans">
+      <!-- B -->
+      <article class="plan reveal d1">
+        <div class="img"><img src="assets/floorplans/type_B.jpg" alt="B 型户型图" loading="lazy" /></div>
+        <div class="body">
+          <div class="tt"><div class="nm">B<em>TYPE B</em></div><div class="tw">Tower 1<br>3 卧 · 2.5 卫</div></div>
+          <div class="grid3">
+            <div class="c"><div class="n">141<small> m²</small></div><div class="u">套内</div></div>
+            <div class="c"><div class="n">21<small> m²</small></div><div class="u">户外</div></div>
+            <div class="c"><div class="n">162<small> m²</small></div><div class="u">总面积</div></div>
+          </div>
+          <div class="meta"><div><b>卧室</b>3</div><div><b>卫浴</b>2.5</div><div><b>车位</b>2</div></div>
+          <div class="price"><div class="pl">起售价 From</div><div class="pv">A$4,350,000</div></div>
+        </div>
+      </article>
+      <!-- C -->
+      <article class="plan reveal d2">
+        <div class="img"><img src="assets/floorplans/type_C.jpg" alt="C 型户型图" loading="lazy" /></div>
+        <div class="body">
+          <div class="tt"><div class="nm">C<em>TYPE C</em></div><div class="tw">Tower 2<br>3 卧 · 2.5 卫</div></div>
+          <div class="grid3">
+            <div class="c"><div class="n">165<small> m²</small></div><div class="u">套内</div></div>
+            <div class="c"><div class="n">25<small> m²</small></div><div class="u">户外</div></div>
+            <div class="c"><div class="n">190<small> m²</small></div><div class="u">总面积</div></div>
+          </div>
+          <div class="meta"><div><b>卧室</b>3</div><div><b>卫浴</b>2.5</div><div><b>车位</b>2</div></div>
+          <div class="price"><div class="pl">起售价 From</div><div class="pv">A$5,450,000</div></div>
+        </div>
+      </article>
+      <!-- E -->
+      <article class="plan reveal d1">
+        <div class="img"><img src="assets/floorplans/type_E.jpg" alt="E 型户型图" loading="lazy" /></div>
+        <div class="body">
+          <div class="tt"><div class="nm">E<em>TYPE E</em></div><div class="tw">Tower 3<br>3 卧 · 2.5 卫</div></div>
+          <div class="grid3">
+            <div class="c"><div class="n">179<small> m²</small></div><div class="u">套内</div></div>
+            <div class="c"><div class="n">29<small> m²</small></div><div class="u">户外</div></div>
+            <div class="c"><div class="n">208<small> m²</small></div><div class="u">总面积</div></div>
+          </div>
+          <div class="meta"><div><b>卧室</b>3</div><div><b>卫浴</b>2.5</div><div><b>车位</b>2</div></div>
+          <div class="price"><div class="pl">起售价 From</div><div class="pv">A$5,450,000</div></div>
+        </div>
+      </article>
+      <!-- F -->
+      <article class="plan reveal d2">
+        <div class="img"><img src="assets/floorplans/type_F.jpg" alt="F 型户型图" loading="lazy" /></div>
+        <div class="body">
+          <div class="tt"><div class="nm">F<em>TYPE F</em></div><div class="tw">Tower 3<br>3 卧 · 2.5 卫</div></div>
+          <div class="grid3">
+            <div class="c"><div class="n">187<small> m²</small></div><div class="u">套内</div></div>
+            <div class="c"><div class="n">29<small> m²</small></div><div class="u">户外</div></div>
+            <div class="c"><div class="n">216<small> m²</small></div><div class="u">总面积</div></div>
+          </div>
+          <div class="meta"><div><b>卧室</b>3</div><div><b>卫浴</b>2.5</div><div><b>车位</b>2</div></div>
+          <div class="price"><div class="pl">起售价 From</div><div class="pv">A$5,450,000</div></div>
+        </div>
+      </article>
+    </div>
+    <p class="plan-note reveal">A 型户型及顶层 Penthouse 系列（Penthouse 1 / Penthouse 2 / Skye One）价格垂询。价格为对应户型当前起售价，最终以正式签约文件及披露文件为准。</p>
+  </div>
+</section>
+
+<!-- 14 DEVELOPER -->
+<section data-sec class="s-dark dev">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="num">11</span>开发商 · Pikos Group</div>
+    <h2 class="reveal d1">布里斯班的<em> 传世匠造者</em></h2>
+    <p class="lede reveal d2">Pikos 创立于 1988 年，是一家私人持有的物业与投资集团，专注于打造经久不衰的住宅地标。三十余年、逾六十五个项目、近两千五百套居所之后，其愿景始终如一 —— 以对设计、环境与社区的敬意，让每一个 Pikos 项目同时升华生活与地景。</p>
+    <div class="stats reveal d2">
+      <div class="stat"><div class="v">37<small>年</small></div><div class="k">深耕布里斯班</div></div>
+      <div class="stat"><div class="v">65<small>+</small></div><div class="k">完工项目</div></div>
+      <div class="stat"><div class="v">2,500<small>套</small></div><div class="k">建成居所</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 CLOSING -->
+<section data-sec class="closing">
+  <div class="ci">
+    <h2 class="reveal">超越定义，<em style="font-style:italic;font-family:var(--display);color:var(--bronze)">于悬崖之巅</em></h2>
+    <div class="addr reveal d1">SKYE BY PIKOS<br>8 River Terrace · Kangaroo Point · Brisbane QLD</div>
+    <div class="status reveal d2">现正发售 · NOW SELLING</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="fm">SKYE</div>
+  <div class="fn">BY PIKOS · KANGAROO POINT</div>
+  <p class="disc">本页所载图片、效果图、平面图、面积、价格与配置均为示意，可能与最终建成实物存在差异，并随项目开发进程发生变化。所有公寓须经开发与建筑审批、最终测量、设计与施工。所有信息须以正式销售合同及披露文件为准。买家在签署销售合同前，应参阅合同文件了解购房价格所含全部事项。本文已尽合理审慎之责，但不对其准确性、可靠性或完整性作任何明示或默示之保证。<br>SKYE by Pikos © 2026</p>
+</footer>
+
+<script>
+  // section index + progress
+  var secs=[].slice.call(document.querySelectorAll('[data-sec]'));
+  var idxEl=document.getElementById('idx'),prog=document.getElementById('progress'),totEl=document.getElementById('tot');
+  totEl.textContent=String(secs.length).padStart(2,'0');
+  function onScroll(){
+    var st=window.scrollY,dh=document.body.scrollHeight-window.innerHeight;
+    prog.style.width=(dh>0?(st/dh*100):0)+'%';
+    var cur=0;
+    for(var i=0;i<secs.length;i++){if(secs[i].getBoundingClientRect().top<=window.innerHeight*0.45)cur=i;}
+    idxEl.textContent=String(Math.min(cur+1,secs.length)).padStart(2,'0');
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // reveal
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>
