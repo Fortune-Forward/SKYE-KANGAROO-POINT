@@ -152,7 +152,7 @@
 
   /* ---------- closing ---------- */
   .closing{height:100svh;min-height:560px;display:flex;align-items:center;justify-content:center;text-align:center;
-    background:linear-gradient(180deg,rgba(20,14,10,.42),rgba(20,14,10,.72)),url('assets/photos/p25_close.jpg') center/cover no-repeat}
+    background:linear-gradient(180deg,rgba(20,14,10,.42),rgba(20,14,10,.72)),url('assets/photos/facade.jpg') center/cover no-repeat}
   .closing .ci{max-width:760px;padding:0 24px}
   .closing h2{color:#fff}
   .closing .addr{margin-top:36px;font-size:13px;letter-spacing:.32em;color:#ece4d6;text-transform:uppercase;line-height:2.2}
@@ -178,7 +178,9 @@
   .film-card .fc .e{font-size:10px;letter-spacing:.34em;color:var(--bronze);text-transform:uppercase}
   .film-card .fc .t{font-family:var(--serif);font-size:18px;color:#fff;margin-top:5px;text-shadow:0 2px 18px rgba(0,0,0,.6)}
   .film-card{cursor:pointer}
-  .film-card .fc .play{margin-top:11px;display:inline-flex;align-items:center;font-size:11px;letter-spacing:.16em;color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.45);padding:7px 14px;border-radius:30px;backdrop-filter:blur(4px)}
+  .film-card .fc .play{margin-top:14px;display:inline-flex;align-items:center;gap:11px;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#f1eade;font-weight:300}
+  .film-card .fc .play .ico{width:34px;height:34px;border:1px solid rgba(241,234,222,.6);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:8px;padding-left:2px;transition:.35s ease}
+  .film-card:hover .fc .play .ico{background:var(--bronze);border-color:var(--bronze);color:#fff}
   @media(max-width:760px){.films{grid-template-columns:1fr;max-width:360px;margin-left:auto;margin-right:auto}}
 
   @media(max-width:860px){
@@ -412,11 +414,11 @@
     <div class="films reveal d2">
       <div class="film-card">
         <video src="assets/video/film_interior.mp4?v=2" poster="assets/video/film_interior.jpg?v=2" autoplay muted loop playsinline webkit-playsinline x5-playsinline disablepictureinpicture preload="auto"></video>
-        <div class="fc"><div class="e">Interior</div><div class="t">室内漫游 · 落地视野</div><div class="play">▶ 点击观看视频</div></div>
+        <div class="fc"><div class="e">Interior</div><div class="t">室内漫游 · 落地视野</div><div class="play"><span class="ico">▶</span>点击观看视频</div></div>
       </div>
       <div class="film-card">
         <video src="assets/video/film_view.mp4?v=2" poster="assets/video/film_view.jpg?v=2" autoplay muted loop playsinline webkit-playsinline x5-playsinline disablepictureinpicture preload="auto"></video>
-        <div class="fc"><div class="e">The View</div><div class="t">城市视野 · 河与天际线</div><div class="play">▶ 点击观看视频</div></div>
+        <div class="fc"><div class="e">The View</div><div class="t">城市视野 · 河与天际线</div><div class="play"><span class="ico">▶</span>点击观看视频</div></div>
       </div>
     </div>
   </div>
@@ -464,13 +466,7 @@
       <img src="assets/photos/p16_bath.jpg" alt="洞石主卫与浴缸" loading="lazy" style="width:100%;display:block;border-radius:3px" />
       <img src="assets/photos/p16_robe.jpg" alt="落地步入式衣帽间" loading="lazy" style="width:100%;display:block;border-radius:3px" />
     </div>
-  </div>
-</section>
-
-<!-- SUITE GALLERY -->
-<section data-sec class="s-dark" style="background:var(--bg-alt)">
-  <div class="wrap">
-    <h2 class="reveal d1" style="text-align:center">卧室、衣帽间与卫浴，<em>一应私享</em></h2>
+    <p class="reveal d3" style="text-align:center;margin-top:22px;font-family:var(--serif);font-size:clamp(16px,4.2vw,22px);color:var(--stone);letter-spacing:.02em">卧室、衣帽间与卫浴，<em style="font-style:italic;font-family:var(--display);color:var(--bronze)">一应私享</em></p>
   </div>
 </section>
 
@@ -507,28 +503,23 @@
 <!-- 12 ROOFTOP -->
 <section data-sec class="s-dark">
   <div class="wrap">
-    <div class="split">
-      <div class="txt">
-        <div class="eyebrow reveal"><span class="num">09</span>顶层生活 · 屋顶</div>
-        <h2 class="reveal d1">凌驾一切之上，<br><em>尽揽全城风光</em></h2>
-        <p class="lede reveal d2">在恒温无边泳池中,舒缓身心,饱览河流至城市的壮阔全景。屋顶休闲再生平台设有躺椅与户外厨房,宛若度假胜地的私属庇护所。</p>
-        <p class="lede reveal d3">地面层礼遇延续 —— 礼宾式 Porte Cochère 落客区通向双门厅，中央休闲花园以葱郁景观连接住户图书馆与共享工作空间。</p>
-        <div class="tags reveal d3"><span>恒温无边泳池</span><span>屋顶户外厨房</span><span>住户图书馆</span><span>礼宾落客区</span></div>
-      </div>
-      <div class="media reveal d2"><img src="assets/photos/p20_poolaerial.jpg" alt="屋顶无边泳池俯瞰" loading="lazy" /></div>
-    </div>
+    <div class="reveal d1"><img src="assets/photos/p20_poolaerial.jpg" alt="屋顶无边泳池俯瞰" loading="lazy" style="width:100%;display:block;border-radius:3px" /></div>
+    <div class="eyebrow reveal" style="margin-top:54px"><span class="num">09</span>顶层生活 · 屋顶</div>
+    <h2 class="reveal d1">凌驾一切之上，<em> 尽揽全城风光</em></h2>
+    <p class="lede reveal d2">在恒温无边泳池中，舒缓身心，饱览河流至城市的壮阔全景。屋顶休闲再生平台设有躺椅与户外厨房，宛若度假胜地的私属庇护所。</p>
+    <p class="lede reveal d3">地面层礼遇延续 —— 礼宾式 Porte Cochère 落客区通向双门厅，中央休闲花园以葱郁景观连接住户图书馆与共享工作空间。</p>
+    <div class="tags reveal d3"><span>恒温无边泳池</span><span>屋顶户外厨房</span><span>住户图书馆</span><span>礼宾落客区</span></div>
   </div>
 </section>
 
 <!-- AMENITY GALLERY -->
 <section data-sec class="s-dark">
   <div class="wrap">
-    <div class="eyebrow reveal">共享礼遇 · Arrival &amp; Amenity</div>
-    <h2 class="reveal d1">从礼宾落客，<em>到屋顶泳池</em></h2>
-    <div class="reveal d2" style="margin-top:48px;display:grid;gap:18px">
+    <div class="reveal d1" style="display:grid;gap:18px">
       <img src="assets/photos/p21_arrival.jpg" alt="礼宾式落客区与门厅" loading="lazy" style="width:100%;display:block;border-radius:3px" />
       <img src="assets/photos/p21_pool.jpg" alt="屋顶无边泳池 · 黄昏" loading="lazy" style="width:100%;display:block;border-radius:3px" />
     </div>
+    <p class="reveal d2" style="text-align:center;margin-top:26px;font-family:var(--serif);font-size:clamp(16px,4.2vw,22px);color:var(--stone)">从礼宾落客，<em style="font-style:italic;font-family:var(--display);color:var(--bronze)">到屋顶泳池</em></p>
   </div>
 </section>
 
