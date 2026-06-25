@@ -63,7 +63,7 @@
   /* ---------- hero ---------- */
   .hero{height:100svh;min-height:620px;display:flex;flex-direction:column;justify-content:flex-end;
     background:linear-gradient(180deg,rgba(20,14,10,.32) 0%,rgba(20,14,10,.05) 42%,rgba(20,14,10,.66) 100%),
-      url('assets/photos/hero_building.jpg') center/cover no-repeat;}
+      url('assets/photos/hero_dusk.jpg') center/cover no-repeat;}
   .hero-inner{padding:0 clamp(22px,6vw,72px) clamp(54px,9vh,96px);max-width:1180px;margin:0 auto;width:100%}
   .hero .kicker{font-size:11px;letter-spacing:.5em;color:#ece3d3;text-transform:uppercase;margin-bottom:28px}
   .hero h1{font-family:var(--display);font-weight:300;font-size:clamp(74px,19vw,230px);line-height:.86;letter-spacing:.12em;color:#fff;text-indent:.12em}
@@ -152,7 +152,7 @@
 
   /* ---------- closing ---------- */
   .closing{height:100svh;min-height:560px;display:flex;align-items:center;justify-content:center;text-align:center;
-    background:linear-gradient(180deg,rgba(20,14,10,.42),rgba(20,14,10,.72)),url('assets/photos/twilight_close.jpg') center/cover no-repeat}
+    background:linear-gradient(180deg,rgba(20,14,10,.42),rgba(20,14,10,.72)),url('assets/photos/p25_close.jpg') center/cover no-repeat}
   .closing .ci{max-width:760px;padding:0 24px}
   .closing h2{color:#fff}
   .closing .addr{margin-top:36px;font-size:13px;letter-spacing:.32em;color:#ece4d6;text-transform:uppercase;line-height:2.2}
@@ -177,6 +177,8 @@
   .film-card .fc{position:absolute;left:18px;bottom:16px;z-index:2}
   .film-card .fc .e{font-size:10px;letter-spacing:.34em;color:var(--bronze);text-transform:uppercase}
   .film-card .fc .t{font-family:var(--serif);font-size:18px;color:#fff;margin-top:5px;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+  .film-card{cursor:pointer}
+  .film-card .fc .play{margin-top:11px;display:inline-flex;align-items:center;font-size:11px;letter-spacing:.16em;color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.45);padding:7px 14px;border-radius:30px;backdrop-filter:blur(4px)}
   @media(max-width:760px){.films{grid-template-columns:1fr;max-width:360px;margin-left:auto;margin-right:auto}}
 
   @media(max-width:860px){
@@ -276,7 +278,7 @@
 
 <!-- 04 AERIAL BAND -->
 <section data-sec>
-  <div class="band" style="background-image:url('assets/photos/tower_river.jpg')">
+  <div class="band" style="background-image:url('assets/photos/p05_aerial.jpg')">
     <div class="cap reveal">
       <div class="e">Kangaroo Point</div>
       <h3>立于半岛之巅，<br>俯瞰河流蜿蜒入城</h3>
@@ -366,7 +368,7 @@
 
 <!-- 07 ARCHITECTURE BAND -->
 <section data-sec>
-  <div class="band" style="background-image:url('assets/photos/aerial_curve.jpg')">
+  <div class="band" style="background-image:url('assets/photos/p09_facade.jpg')">
     <div class="cap reveal">
       <div class="e">Architecture</div>
       <h3>克制有力的建筑语言，<br>与河岸天际线共生</h3>
@@ -386,14 +388,14 @@
           <span>欧洲橡木地板</span><span>罗马古典洞石</span><span>木饰面橱柜</span><span>落地玻璃</span>
         </div>
       </div>
-      <div class="media reveal d2"><div class="figrow"><img src="assets/photos/living_wide.jpg?v=4" alt="阳台与城市天际线" loading="lazy" /><img src="assets/photos/living_dining.jpg?v=4" alt="日落起居一隅" loading="lazy" /></div></div>
+      <div class="media reveal d2"><div class="figrow"><img src="assets/photos/p10a_shelf.jpg" alt="橡木木作细节" loading="lazy" /><img src="assets/photos/p10b_kitchen.jpg" alt="洞石厨房中岛" loading="lazy" /></div></div>
     </div>
   </div>
 </section>
 
 <!-- LIVING BAND (furnished, with view) -->
 <section data-sec>
-  <div class="band" style="background-image:url('assets/photos/terrace_sunset.jpg?v=4')">
+  <div class="band" style="background-image:url('assets/photos/p11_terrace.jpg')">
     <div class="cap reveal">
       <div class="e">Open-Plan Living</div>
       <h3>餐厨起居一体，<br>揽河城景致入室</h3>
@@ -410,11 +412,11 @@
     <div class="films reveal d2">
       <div class="film-card">
         <video src="assets/video/film_interior.mp4?v=2" poster="assets/video/film_interior.jpg?v=2" autoplay muted loop playsinline webkit-playsinline x5-playsinline disablepictureinpicture preload="auto"></video>
-        <div class="fc"><div class="e">Interior</div><div class="t">室内漫游 · 落地视野</div></div>
+        <div class="fc"><div class="e">Interior</div><div class="t">室内漫游 · 落地视野</div><div class="play">▶ 点击观看视频</div></div>
       </div>
       <div class="film-card">
         <video src="assets/video/film_view.mp4?v=2" poster="assets/video/film_view.jpg?v=2" autoplay muted loop playsinline webkit-playsinline x5-playsinline disablepictureinpicture preload="auto"></video>
-        <div class="fc"><div class="e">The View</div><div class="t">城市视野 · 河与天际线</div></div>
+        <div class="fc"><div class="e">The View</div><div class="t">城市视野 · 河与天际线</div><div class="play">▶ 点击观看视频</div></div>
       </div>
     </div>
   </div>
@@ -422,7 +424,7 @@
 
 <!-- 09 KITCHEN + VIEW BAND -->
 <section data-sec>
-  <div class="band" style="background-image:url('assets/photos/kitchen.jpg?v=4')">
+  <div class="band" style="background-image:url('assets/photos/p13_living.jpg')">
     <div class="cap reveal">
       <div class="e">The Kitchen</div>
       <h3>V-ZUG 全套电器 · PARISI 水件<br>洞石中岛，世界级配置</h3>
@@ -435,17 +437,13 @@
   <div class="wrap">
     <div class="eyebrow reveal">室内实景 · Interiors</div>
     <h2 class="reveal d1">每一处空间，<em>皆向光而居</em></h2>
-    <div class="gallery reveal d2">
-      <figure><img src="assets/photos/int_living2.jpg" alt="起居与河景" loading="lazy"></figure>
-      <figure><img src="assets/photos/int_kitchen2.jpg" alt="洞石厨房中岛" loading="lazy"></figure>
-      <figure><img src="assets/photos/int_living3.jpg" alt="起居空间与艺术" loading="lazy"></figure>
-    </div>
+    <div class="reveal d2" style="margin-top:48px"><img src="assets/photos/p14_nook.jpg" alt="向光而居 · 日落一隅" loading="lazy" style="width:100%;display:block;border-radius:3px" /></div>
   </div>
 </section>
 
 <!-- BEDROOM BAND (furnished) -->
 <section data-sec>
-  <div class="band" style="background-image:url('assets/photos/bedroom_furnished.jpg')">
+  <div class="band" style="background-image:url('assets/photos/p15_bedroom.jpg')">
     <div class="cap reveal">
       <div class="e">Master Suite</div>
       <h3>卧于云端，<br>晨光与城市天际相伴</h3>
@@ -456,21 +454,15 @@
 <!-- 10 MASTER + BATH -->
 <section data-sec class="s-dark" style="background:var(--bg-alt)">
   <div class="wrap">
-    <div class="split flip">
-      <div class="media reveal d2">
-        <div class="figrow">
-          <img src="assets/photos/bedroom.jpg?v=4" alt="主卧" loading="lazy" />
-          <img src="assets/photos/bathroom.jpg" alt="主卫" loading="lazy" />
-        </div>
-      </div>
-      <div class="txt">
-        <div class="eyebrow reveal"><span class="num">07</span>主卧 · 卫浴</div>
-        <h2 class="reveal d1">私属静养的<br><em>归宿之所</em></h2>
-        <p class="lede reveal d2">每户三间宽敞卧室，主卧是私密的退隐之地 —— 落地衣帽间、定制橱柜辅以特色灯光，与天然橡木的暖调相得益彰。卫浴空间自地面至天花，皆以华美的 Roman Classic 洞石铺陈，营造无与伦比的雅致与静谧。</p>
-        <div class="tags reveal d3">
-          <span>100% 羊毛地毯</span><span>落地衣帽间</span><span>洞石浴缸台面</span><span>全屋落地窗</span>
-        </div>
-      </div>
+    <div class="eyebrow reveal"><span class="num">07</span>主卧套间 · THE SUITE</div>
+    <h2 class="reveal d1">私属静养的<em> 归宿之所</em></h2>
+    <p class="lede reveal d2">每户三间宽敞卧室，主卧是私密的退隐之地 —— 落地衣帽间、定制橱柜辅以特色灯光，与天然橡木的暖调相得益彰。卫浴空间自地面至天花，皆以华美的 Roman Classic 洞石铺陈，营造无与伦比的雅致与静谧。</p>
+    <div class="tags reveal d2">
+      <span>100% 羊毛地毯</span><span>落地衣帽间</span><span>洞石浴缸台面</span><span>全屋落地窗</span>
+    </div>
+    <div class="reveal d3" style="margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <img src="assets/photos/p16_bath.jpg" alt="洞石主卫与浴缸" loading="lazy" style="width:100%;display:block;border-radius:3px" />
+      <img src="assets/photos/p16_robe.jpg" alt="落地步入式衣帽间" loading="lazy" style="width:100%;display:block;border-radius:3px" />
     </div>
   </div>
 </section>
@@ -478,19 +470,13 @@
 <!-- SUITE GALLERY -->
 <section data-sec class="s-dark" style="background:var(--bg-alt)">
   <div class="wrap">
-    <div class="eyebrow reveal">主卧套间 · The Suite</div>
-    <h2 class="reveal d1">卧室、衣帽间与卫浴，<em>一应私享</em></h2>
-    <div class="gallery reveal d2">
-      <figure><img src="assets/photos/suite_bed2.jpg" alt="主卧城市景观" loading="lazy"></figure>
-      <figure><img src="assets/photos/suite_bath2.jpg" alt="洞石主卫与浴缸" loading="lazy"></figure>
-      <figure><img src="assets/photos/suite_robe.jpg" alt="落地步入式衣帽间" loading="lazy"></figure>
-    </div>
+    <h2 class="reveal d1" style="text-align:center">卧室、衣帽间与卫浴，<em>一应私享</em></h2>
   </div>
 </section>
 
 <!-- DETAIL BAND -->
 <section data-sec>
-  <div class="band" style="background-image:url('assets/photos/joinery.jpg')">
+  <div class="band" style="background-image:url('assets/photos/p18_shelf2.jpg')">
     <div class="cap reveal">
       <div class="e">Craft · 木作</div>
       <h3>天然橡木的暖调，<br>于光影之间静默生长</h3>
@@ -504,6 +490,7 @@
     <div class="eyebrow reveal"><span class="num">08</span>精装规格 · Schedule of Finishes</div>
     <h2 class="reveal d1">历久弥新的<em> 奢享之居</em></h2>
     <p class="lede reveal d2">每一处细节，都经过深思熟虑 —— 以纯粹与持久为念，与周遭环境相得益彰，经得起时间的考验。</p>
+    <div class="reveal d2" style="margin-top:44px"><img src="assets/photos/p19_living2.jpg" alt="餐厨起居与城市天际" loading="lazy" style="width:100%;display:block;border-radius:3px" /></div>
     <div class="spec reveal d2">
       <div class="row"><div class="lbl">客厨餐地板</div><div class="val">欧洲橡木 European Oak 工程实木</div></div>
       <div class="row"><div class="lbl">卫浴 · 阳台</div><div class="val">Roman Classic Travertine 罗马古典洞石</div></div>
@@ -528,7 +515,7 @@
         <p class="lede reveal d3">地面层礼遇延续 —— 礼宾式 Porte Cochère 落客区通向双门厅，中央休闲花园以葱郁景观连接住户图书馆与共享工作空间。</p>
         <div class="tags reveal d3"><span>恒温无边泳池</span><span>屋顶户外厨房</span><span>住户图书馆</span><span>礼宾落客区</span></div>
       </div>
-      <div class="media reveal d2"><div class="figrow"><img src="assets/photos/pool_skyline.jpg?v=4" alt="屋顶无边泳池" loading="lazy" /><img src="assets/photos/pool_column.jpg?v=4" alt="暮色露台与天际线" loading="lazy" /></div></div>
+      <div class="media reveal d2"><img src="assets/photos/p20_poolaerial.jpg" alt="屋顶无边泳池俯瞰" loading="lazy" /></div>
     </div>
   </div>
 </section>
@@ -538,17 +525,16 @@
   <div class="wrap">
     <div class="eyebrow reveal">共享礼遇 · Arrival &amp; Amenity</div>
     <h2 class="reveal d1">从礼宾落客，<em>到屋顶泳池</em></h2>
-    <div class="gallery reveal d2">
-      <figure><img src="assets/photos/amenity_arrival.jpg" alt="礼宾式落客区" loading="lazy"></figure>
-      <figure><img src="assets/photos/amenity_pool2.jpg" alt="屋顶无边泳池" loading="lazy"></figure>
-      <figure><img src="assets/photos/amenity_arrival2.jpg" alt="入口门厅" loading="lazy"></figure>
+    <div class="reveal d2" style="margin-top:48px;display:grid;gap:18px">
+      <img src="assets/photos/p21_arrival.jpg" alt="礼宾式落客区与门厅" loading="lazy" style="width:100%;display:block;border-radius:3px" />
+      <img src="assets/photos/p21_pool.jpg" alt="屋顶无边泳池 · 黄昏" loading="lazy" style="width:100%;display:block;border-radius:3px" />
     </div>
   </div>
 </section>
 
 <!-- ADDRESS BAND -->
 <section data-sec>
-  <div class="band" style="background-image:url('assets/photos/aerial_river.jpg')">
+  <div class="band" style="background-image:url('assets/photos/p22_building.jpg')">
     <div class="cap reveal">
       <div class="e">8 River Terrace</div>
       <h3>立于河岸之上，<br>连接布里斯班的全部精华</h3>
@@ -691,6 +677,14 @@
     document.addEventListener('WeixinJSBridgeReady',playAll,false);
     window.addEventListener('load',playAll);
     playAll();
+  })();
+
+  // film cards: tap to view in fullscreen
+  (function(){
+    function fs(v){ if(v.requestFullscreen)v.requestFullscreen(); else if(v.webkitRequestFullscreen)v.webkitRequestFullscreen(); else if(v.webkitEnterFullscreen)v.webkitEnterFullscreen(); }
+    document.querySelectorAll('.film-card').forEach(function(card){
+      card.addEventListener('click',function(){ var v=card.querySelector('video'); if(v){ try{fs(v);}catch(e){} v.play&&v.play(); } });
+    });
   })();
 </script>
 </body>
