@@ -162,6 +162,13 @@
   .footer .fn{font-size:11px;letter-spacing:.3em;color:var(--muted-2);margin-top:16px;text-transform:uppercase}
   .footer .disc{max-width:880px;margin:34px auto 0;font-size:11px;color:var(--muted-2);line-height:1.9;letter-spacing:.02em}
 
+  /* ---------- gallery ---------- */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:52px}
+  .gallery figure{margin:0;position:relative;overflow:hidden;border-radius:2px;background:var(--bg-alt)}
+  .gallery img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.16,1,.3,1)}
+  .gallery figure:hover img{transform:scale(1.045)}
+  @media(max-width:760px){.gallery{grid-template-columns:1fr 1fr;gap:8px;margin-top:40px}}
+
   /* ---------- film ---------- */
   .films{display:grid;grid-template-columns:repeat(2,minmax(0,360px));gap:clamp(18px,3vw,44px);justify-content:center;margin-top:58px}
   .film-card{position:relative;border:1px solid var(--line-soft);border-radius:4px;overflow:hidden;background:#000}
@@ -364,6 +371,16 @@
   </div>
 </section>
 
+<!-- LIVING BAND (furnished, with view) -->
+<section data-sec>
+  <div class="band" style="background-image:url('assets/photos/living_furnished.jpg')">
+    <div class="cap reveal">
+      <div class="e">Open-Plan Living</div>
+      <h3>餐厨起居一体，<br>揽河城景致入室</h3>
+    </div>
+  </div>
+</section>
+
 <!-- FILM -->
 <section data-sec class="s-dark">
   <div class="wrap">
@@ -393,6 +410,29 @@
   </div>
 </section>
 
+<!-- INTERIORS GALLERY -->
+<section data-sec class="s-dark">
+  <div class="wrap">
+    <div class="eyebrow reveal">室内实景 · Interiors</div>
+    <h2 class="reveal d1">每一处空间，<em>皆向光而居</em></h2>
+    <div class="gallery reveal d2">
+      <figure><img src="assets/photos/int_living2.jpg" alt="起居与河景" loading="lazy"></figure>
+      <figure><img src="assets/photos/int_kitchen2.jpg" alt="洞石厨房中岛" loading="lazy"></figure>
+      <figure><img src="assets/photos/int_living3.jpg" alt="起居空间与艺术" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- BEDROOM BAND (furnished) -->
+<section data-sec>
+  <div class="band" style="background-image:url('assets/photos/bedroom_furnished.jpg')">
+    <div class="cap reveal">
+      <div class="e">Master Suite</div>
+      <h3>卧于云端，<br>晨光与城市天际相伴</h3>
+    </div>
+  </div>
+</section>
+
 <!-- 10 MASTER + BATH -->
 <section data-sec class="s-dark" style="background:var(--bg-alt)">
   <div class="wrap">
@@ -411,6 +451,19 @@
           <span>100% 羊毛地毯</span><span>落地衣帽间</span><span>洞石浴缸台面</span><span>全屋落地窗</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUITE GALLERY -->
+<section data-sec class="s-dark" style="background:var(--bg-alt)">
+  <div class="wrap">
+    <div class="eyebrow reveal">主卧套间 · The Suite</div>
+    <h2 class="reveal d1">卧室、衣帽间与卫浴，<em>一应私享</em></h2>
+    <div class="gallery reveal d2">
+      <figure><img src="assets/photos/suite_bed2.jpg" alt="主卧城市景观" loading="lazy"></figure>
+      <figure><img src="assets/photos/suite_bath2.jpg" alt="洞石主卫与浴缸" loading="lazy"></figure>
+      <figure><img src="assets/photos/suite_robe.jpg" alt="落地步入式衣帽间" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -456,6 +509,19 @@
         <div class="tags reveal d3"><span>恒温无边泳池</span><span>屋顶户外厨房</span><span>住户图书馆</span><span>礼宾落客区</span></div>
       </div>
       <div class="media reveal d2"><div class="figrow"><img src="assets/photos/pool_skyline.jpg" alt="屋顶无边泳池" loading="lazy" /><img src="assets/photos/pool_column.jpg" alt="屋顶泳池平台" loading="lazy" /></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITY GALLERY -->
+<section data-sec class="s-dark">
+  <div class="wrap">
+    <div class="eyebrow reveal">共享礼遇 · Arrival &amp; Amenity</div>
+    <h2 class="reveal d1">从礼宾落客，<em>到屋顶泳池</em></h2>
+    <div class="gallery reveal d2">
+      <figure><img src="assets/photos/amenity_arrival.jpg" alt="礼宾式落客区" loading="lazy"></figure>
+      <figure><img src="assets/photos/amenity_pool2.jpg" alt="屋顶无边泳池" loading="lazy"></figure>
+      <figure><img src="assets/photos/amenity_arrival2.jpg" alt="入口门厅" loading="lazy"></figure>
     </div>
   </div>
 </section>
