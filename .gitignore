@@ -3,3 +3,4 @@ _*.jpg
 _*.png
 .DS_Store
 *.tmp
+_*.html

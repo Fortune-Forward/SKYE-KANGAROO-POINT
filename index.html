@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
-<meta name="theme-color" content="#171311" />
+<meta name="theme-color" content="#f8f3ea" />
 <title>SKYE by Pikos | 袋鼠角悬崖之上 · 布里斯班</title>
 <meta name="description" content="SKYE by Pikos —— 矗立于布里斯班袋鼠角悬崖之上的臻藏住宅，俯瞰河流与城市天际线。三栋独立建筑，每层仅两户，全系三卧豪宅。" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -11,17 +11,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+SC:wght@300;400;500;600&family=Noto+Sans+SC:wght@200;300;400;500&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --bg:#171311;          /* warm near-black */
-    --bg-alt:#1f1a16;      /* stone dark */
-    --bg-deep:#100c0a;
-    --stone:#e7ded0;       /* travertine light */
-    --stone-2:#d8cdba;
-    --cream:#efe9dd;
-    --muted:#a3957f;       /* muted oak */
-    --muted-2:#7d7060;
-    --bronze:#b08d57;      /* brushed bronze accent */
-    --line:rgba(176,141,87,0.28);
-    --line-soft:rgba(231,222,208,0.12);
+    --bg:#f8f3ea;          /* warm ivory / travertine light */
+    --bg-alt:#efe7d8;      /* soft sand */
+    --bg-deep:#ebe1d0;
+    --stone:#2c2319;       /* deep espresso (headings/values) */
+    --stone-2:#4d4131;     /* secondary dark text */
+    --cream:#3b3023;       /* body text */
+    --muted:#7c6c54;       /* muted oak */
+    --muted-2:#a4937a;
+    --bronze:#9a7536;      /* brushed bronze accent */
+    --line:rgba(70,52,28,0.26);
+    --line-soft:rgba(70,52,28,0.12);
     --serif:'Noto Serif SC','Cormorant Garamond',serif;
     --display:'Cormorant Garamond','Noto Serif SC',serif;
     --sans:'Noto Sans SC',system-ui,-apple-system,sans-serif;
@@ -62,15 +62,15 @@
 
   /* ---------- hero ---------- */
   .hero{height:100svh;min-height:620px;display:flex;flex-direction:column;justify-content:flex-end;
-    background:linear-gradient(180deg,rgba(15,11,9,.55) 0%,rgba(15,11,9,.05) 32%,rgba(15,11,9,.78) 100%),
+    background:linear-gradient(180deg,rgba(20,14,10,.30) 0%,rgba(20,14,10,0) 40%,rgba(20,14,10,.62) 100%),
       url('assets/photos/hero_dusk.jpg') center/cover no-repeat;}
   .hero-inner{padding:0 clamp(22px,6vw,72px) clamp(54px,9vh,96px);max-width:1180px;margin:0 auto;width:100%}
-  .hero .kicker{font-size:11px;letter-spacing:.5em;color:var(--stone-2);text-transform:uppercase;margin-bottom:28px}
+  .hero .kicker{font-size:11px;letter-spacing:.5em;color:#ece3d3;text-transform:uppercase;margin-bottom:28px}
   .hero h1{font-family:var(--display);font-weight:300;font-size:clamp(74px,19vw,230px);line-height:.86;letter-spacing:.12em;color:#fff;text-indent:.12em}
-  .hero .sub{font-family:var(--display);font-style:italic;font-size:clamp(18px,2.6vw,30px);color:var(--stone);margin-top:18px;letter-spacing:.04em}
-  .hero .tagline{font-size:clamp(13px,1.5vw,16px);letter-spacing:.16em;color:var(--cream);margin-top:30px}
-  .hero .addr{font-size:12px;letter-spacing:.28em;color:var(--muted);margin-top:14px;text-transform:uppercase}
-  .hero .scroll{margin-top:40px;font-size:11px;letter-spacing:.3em;color:var(--stone-2);display:flex;align-items:center;gap:12px}
+  .hero .sub{font-family:var(--display);font-style:italic;font-size:clamp(18px,2.6vw,30px);color:#f4ecdd;margin-top:18px;letter-spacing:.04em}
+  .hero .tagline{font-size:clamp(13px,1.5vw,16px);letter-spacing:.16em;color:#fbf7ee;margin-top:30px}
+  .hero .addr{font-size:12px;letter-spacing:.28em;color:#dccdb3;margin-top:14px;text-transform:uppercase}
+  .hero .scroll{margin-top:40px;font-size:11px;letter-spacing:.3em;color:#e6dcca;display:flex;align-items:center;gap:12px}
   .hero .scroll .ln{width:46px;height:1px;background:var(--bronze);display:inline-block;animation:grow 2.4s ease-in-out infinite}
   @keyframes grow{0%,100%{transform:scaleX(.4);opacity:.5}50%{transform:scaleX(1);opacity:1}}
 
@@ -97,11 +97,11 @@
   .figrow img{aspect-ratio:3/4;object-fit:cover;width:100%}
 
   /* ---------- light section ---------- */
-  .light{background:var(--stone);color:#2a231b}
-  .light h2{color:#2a231b}
-  .light h2 em{color:#8a6a3a}
-  .light .eyebrow{color:#8a6a3a}
-  .light .lede{color:#6a5d4c}
+  .light{background:#ece1cd;color:#2b2219}
+  .light h2{color:#2b2219}
+  .light h2 em{color:#8a6a30}
+  .light .eyebrow{color:#8a6a30}
+  .light .lede{color:#6a5b45}
   .spec{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:54px;border-top:1px solid rgba(42,35,27,.18)}
   .spec .row{display:grid;grid-template-columns:1fr 1.4fr;gap:18px;padding:22px 4px;border-bottom:1px solid rgba(42,35,27,.14)}
   .spec .row .lbl{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9a7e54;font-weight:500}
@@ -113,7 +113,7 @@
   .lifestyle .cell{background:var(--bg);padding:34px clamp(18px,2.6vw,30px)}
   .lifestyle .cell h4{font-size:11px;letter-spacing:.26em;color:var(--bronze);text-transform:uppercase;margin-bottom:20px;font-weight:500}
   .lifestyle .cell ul{list-style:none}
-  .lifestyle .cell li{font-size:14.5px;color:var(--stone-2);padding:7px 0;border-bottom:1px solid rgba(231,222,208,.06);font-family:var(--serif)}
+  .lifestyle .cell li{font-size:14.5px;color:var(--stone-2);padding:7px 0;border-bottom:1px solid rgba(70,52,28,.10);font-family:var(--serif)}
   .lifestyle .cell li span{display:block;font-size:11px;color:var(--muted-2);letter-spacing:.05em;font-family:var(--sans)}
 
   /* ---------- distances ---------- */
@@ -152,11 +152,11 @@
 
   /* ---------- closing ---------- */
   .closing{height:100svh;min-height:560px;display:flex;align-items:center;justify-content:center;text-align:center;
-    background:linear-gradient(180deg,rgba(15,11,9,.62),rgba(15,11,9,.82)),url('assets/photos/facade.jpg') center/cover no-repeat}
+    background:linear-gradient(180deg,rgba(20,14,10,.40),rgba(20,14,10,.70)),url('assets/photos/facade.jpg') center/cover no-repeat}
   .closing .ci{max-width:760px;padding:0 24px}
   .closing h2{color:#fff}
-  .closing .addr{margin-top:36px;font-size:13px;letter-spacing:.32em;color:var(--stone-2);text-transform:uppercase;line-height:2.2}
-  .closing .status{display:inline-block;margin-top:30px;font-size:11px;letter-spacing:.3em;color:var(--bronze);border:1px solid var(--line);border-radius:40px;padding:12px 28px;text-transform:uppercase}
+  .closing .addr{margin-top:36px;font-size:13px;letter-spacing:.32em;color:#ece4d6;text-transform:uppercase;line-height:2.2}
+  .closing .status{display:inline-block;margin-top:30px;font-size:11px;letter-spacing:.3em;color:#d8b87a;border:1px solid rgba(255,255,255,.28);border-radius:40px;padding:12px 28px;text-transform:uppercase}
   .footer{background:var(--bg-deep);padding:60px clamp(22px,6vw,72px);text-align:center}
   .footer .fm{font-family:var(--display);letter-spacing:.5em;font-size:22px;color:var(--stone);padding-left:.5em}
   .footer .fn{font-size:11px;letter-spacing:.3em;color:var(--muted-2);margin-top:16px;text-transform:uppercase}
